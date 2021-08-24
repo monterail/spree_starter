@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_072405) do
+ActiveRecord::Schema.define(version: 2021_08_24_094956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1268,6 +1268,8 @@ ActiveRecord::Schema.define(version: 2021_08_24_072405) do
     t.integer "priority"
     t.string "notification_email"
     t.string "postcode"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["deleted_at"], name: "index_spree_vendors_on_deleted_at"
     t.index ["name"], name: "index_spree_vendors_on_name", unique: true
     t.index ["slug"], name: "index_spree_vendors_on_slug", unique: true
