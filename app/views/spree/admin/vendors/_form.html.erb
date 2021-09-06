@@ -12,6 +12,10 @@
     <%= f.label :contact_us %>
     <%= f.text_area :contact_us, class: 'form-control' %>
   <% end %>
+  <%= f.field_container :postcode do %>
+    <%= f.label :address %>
+    <%= f.text_area :postcode, class: 'form-control' %>
+  <% end %>
   <%= f.field_container :state do %>
     <%= f.label :state %>
     <%= f.select :state,

@@ -9,7 +9,7 @@ module SpreeStarter
       end
 
       def coordinates
-        [about_us].compact.join(', ')
+        [postcode, about_us].compact.join(', ')
       end
     end
   end
