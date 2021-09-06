@@ -18,6 +18,7 @@
       <li class="p-3 plp-sort-dropdown-ul-li<%= '--active' if params[:sort_by] == 'name-a-z' %>">
         <%= link_to Spree.t('plp.name_a_z'), url_for(permitted_params.merge(sort_by: 'name-a-z')), class: 'dropdown-item' %>
       </li>
+
       </li>
       <li class="p-3 plp-sort-dropdown-ul-li<%= '--active' if params[:sort_by] == 'name-z-a' %>">
         <%= link_to Spree.t('plp.name_z_a'), url_for(permitted_params.merge(sort_by: 'name-z-a')), class: 'dropdown-item' %>
@@ -31,8 +32,8 @@
       <li class="p-3 plp-sort-dropdown-ul-li<%= '--active' if params[:sort_by] == 'price-low-to-high' %>">
         <%= link_to Spree.t('plp.price_low_to_high'), url_for(permitted_params.merge(sort_by: 'price-low-to-high')), class: 'dropdown-item' %>
       </li>
-      <li class="p-3 plp-sort-dropdown-ul-li<%= '--active' if params[:sort_by] == 'ascend-by-postcode' %>">
-        <%= link_to Spree.t('plp.postcode'), url_for(permitted_params.merge(sort_by: 'ascend-by-postcode')), class: 'dropdown-item' %>
+      <li class="p-3 plp-sort-dropdown-ul-li<%= '--active' if params[:sort_by] == 'ascend_by_postcode' %>">
+        <%= link_to Spree.t('plp.postcode'), url_for(permitted_params.merge(sort_by: 'ascend_by_postcode')), class: 'dropdown-item' %>
       </li>
     </ul>
   </div>
