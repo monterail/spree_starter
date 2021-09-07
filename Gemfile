@@ -10,6 +10,8 @@ gem 'pg'
 gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
+# Used for locating stores
+gem 'geocoder', '~> 1.6', '>= 1.6.7'
 
 gem 'mini_racer'
 
