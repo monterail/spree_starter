@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_07_092552) do
+ActiveRecord::Schema.define(version: 2021_09_16_115627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -232,6 +232,20 @@ ActiveRecord::Schema.define(version: 2021_09_07_092552) do
     t.datetime "updated_at", null: false
     t.index ["number"], name: "index_spree_customer_returns_on_number", unique: true
     t.index ["stock_location_id"], name: "index_spree_customer_returns_on_stock_location_id"
+  end
+
+  create_table "spree_customer_shipments", id: :serial, force: :cascade do |t|
+    t.integer "return_authorization_id"
+    t.string "number"
+    t.decimal "weight", precision: 8, scale: 2
+    t.string "easypost_shipment_id"
+    t.string "tracking"
+    t.text "tracking_label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["number"], name: "index_spree_customer_shipments_on_number"
+    t.index ["return_authorization_id"], name: "index_spree_customer_shipments_on_return_authorization_id"
+    t.index ["tracking"], name: "index_spree_customer_shipments_on_tracking"
   end
 
   create_table "spree_gateways", id: :serial, force: :cascade do |t|
@@ -571,6 +585,7 @@ ActiveRecord::Schema.define(version: 2021_09_07_092552) do
     t.string "meta_title"
     t.datetime "discontinue_on"
     t.integer "vendor_id"
+    t.string "easy_post_hs_tariff_number"
     t.index ["available_on"], name: "index_spree_products_on_available_on"
     t.index ["deleted_at"], name: "index_spree_products_on_deleted_at"
     t.index ["discontinue_on"], name: "index_spree_products_on_discontinue_on"
@@ -826,6 +841,16 @@ ActiveRecord::Schema.define(version: 2021_09_07_092552) do
     t.index "lower((name)::text)", name: "index_spree_roles_on_lower_name", unique: true
   end
 
+  create_table "spree_scan_forms", id: :serial, force: :cascade do |t|
+    t.string "easy_post_scan_form_id"
+    t.integer "stock_location_id"
+    t.text "scan_form"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "number"
+    t.index ["stock_location_id"], name: "index_spree_scan_forms_on_stock_location_id"
+  end
+
   create_table "spree_shipments", id: :serial, force: :cascade do |t|
     t.string "tracking"
     t.string "number"
@@ -844,9 +869,12 @@ ActiveRecord::Schema.define(version: 2021_09_07_092552) do
     t.decimal "pre_tax_amount", precision: 12, scale: 4, default: "0.0", null: false
     t.decimal "taxable_adjustment_total", precision: 10, scale: 2, default: "0.0", null: false
     t.decimal "non_taxable_adjustment_total", precision: 10, scale: 2, default: "0.0", null: false
+    t.text "tracking_label"
+    t.integer "scan_form_id"
     t.index ["address_id"], name: "index_spree_shipments_on_address_id"
     t.index ["number"], name: "index_spree_shipments_on_number", unique: true
     t.index ["order_id"], name: "index_spree_shipments_on_order_id"
+    t.index ["scan_form_id"], name: "index_spree_shipments_on_scan_form_id"
     t.index ["stock_location_id"], name: "index_spree_shipments_on_stock_location_id"
   end
 
@@ -854,6 +882,7 @@ ActiveRecord::Schema.define(version: 2021_09_07_092552) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "use_easypost", default: false
     t.index ["name"], name: "index_spree_shipping_categories_on_name"
   end
 
@@ -898,6 +927,8 @@ ActiveRecord::Schema.define(version: 2021_09_07_092552) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "tax_rate_id"
+    t.string "easy_post_shipment_id"
+    t.string "easy_post_rate_id"
     t.index ["selected"], name: "index_spree_shipping_rates_on_selected"
     t.index ["shipment_id", "shipping_method_id"], name: "spree_shipping_rates_join_index", unique: true
     t.index ["shipment_id"], name: "index_spree_shipping_rates_on_shipment_id"
@@ -969,6 +1000,7 @@ ActiveRecord::Schema.define(version: 2021_09_07_092552) do
     t.boolean "propagate_all_variants", default: true
     t.string "admin_name"
     t.integer "vendor_id"
+    t.string "time_zone", default: "UTC"
     t.index ["active"], name: "index_spree_stock_locations_on_active"
     t.index ["backorderable_default"], name: "index_spree_stock_locations_on_backorderable_default"
     t.index ["country_id"], name: "index_spree_stock_locations_on_country_id"
