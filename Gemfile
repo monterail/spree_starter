@@ -108,3 +108,6 @@ gem 'activerecord-nulldb-adapter'
 
 # improved JSON rendering performance
 gem 'oj'
+
+# Figaro
+gem 'figaro', '~> 1.1', '>= 1.1.1'
