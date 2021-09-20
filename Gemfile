@@ -84,7 +84,7 @@ gem 'spree_i18n', '>= 5.0'
 gem 'spree_multi_vendor', " ~> 2.2"
 gem 'spree_dev_tools', require: false, group: %w[test development]
 gem 'spree_multi_domain', github: 'spree-contrib/spree-multi-domain'
-gem 'spree_easypost', :path => './lib/spree_easypost'
+gem 'spree_easypost', github: 'RubyDiver/spree_easypost'
 
 
 # Sentry Client
@@ -109,3 +109,9 @@ gem 'activerecord-nulldb-adapter'
 
 # improved JSON rendering performance
 gem 'oj'
+
+# Geocoder
+gem 'geocoder', '~> 1.6', '>= 1.6.7'
+
+# Figaro
+gem 'figaro', '~> 1.2'

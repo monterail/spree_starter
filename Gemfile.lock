@@ -1,18 +1,19 @@
 GIT
+  remote: https://github.com/RubyDiver/spree_easypost.git
+  revision: c7c51e038607e2e608888a06da9790f245263632
+  specs:
+    spree_easypost (1.1.0.alpha)
+      easypost (>= 2.7, < 3.1)
+      spree_core (>= 3.1.0, < 4.4)
+      spree_extension
+
+GIT
   remote: https://github.com/spree-contrib/spree-multi-domain.git
   revision: c2044074645bcd4883f2129309aa1daefdcd8efe
   specs:
     spree_multi_domain (4.0.0)
       deface
       spree (>= 4.2.0.rc4, < 5.0)
-      spree_extension
-
-PATH
-  remote: lib/spree_easypost
-  specs:
-    spree_easypost (1.1.0.alpha)
-      easypost (>= 2.7, < 3.1)
-      spree_core (>= 3.1.0, < 4.4)
       spree_extension
 
 GEM
@@ -244,6 +245,8 @@ GEM
     ffaker (2.19.0)
     ffi (1.15.3)
     fiber-local (1.0.0)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     flamegraph (0.9.5)
     flatpickr (4.6.6.0)
     flipper (0.22.1)
@@ -736,6 +739,7 @@ DEPENDENCIES
   bullet
   dalli
   dotenv-rails (~> 2.1, >= 2.1.1)
+  figaro (~> 1.2)
   flamegraph
   flipper
   flipper-active_record

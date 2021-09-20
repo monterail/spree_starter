@@ -1,2 +1,2 @@
 require 'easypost'
-EasyPost.api_key = 'EZTK7270f23638e14253bf4e30387c4f499cugiat2qUebiG6wIrqaDiZw'
+EasyPost.api_key = 'easypost_API_key'
