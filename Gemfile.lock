@@ -263,6 +263,7 @@ GEM
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
     gem-release (2.2.2)
+    geocoder (1.6.7)
     github_changelog_generator (1.16.4)
       activesupport
       async (>= 1.25.0)
@@ -741,6 +742,7 @@ DEPENDENCIES
   flipper-redis
   flipper-ui
   font_assets
+  geocoder (~> 1.6, >= 1.6.7)
   letter_opener
   listen
   memory_profiler
