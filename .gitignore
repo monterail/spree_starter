@@ -52,4 +52,3 @@ yarn-debug.log*
 # Ignore application configuration
 
 /config/master.key
-/config/credentials.yml.enc
