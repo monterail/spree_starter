@@ -85,6 +85,9 @@ gem 'spree_multi_vendor', " ~> 2.2"
 gem 'spree_dev_tools', require: false, group: %w[test development]
 gem 'spree_multi_domain', github: 'spree-contrib/spree-multi-domain'
 
+# We use fork version, because original Innarticles/spree_easypost doesn't support spree_core > 4.2
+gem 'spree_easypost', github: 'RubyDiver/spree_easypost'
+
 # Sentry Client
 gem 'sentry-raven'
 

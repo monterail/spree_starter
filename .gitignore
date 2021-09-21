@@ -49,3 +49,6 @@ node_modules
 yarn-debug.log*
 .yarn-integrity
 /yarn-error.log
+# Ignore application configuration
+
+/config/master.key
