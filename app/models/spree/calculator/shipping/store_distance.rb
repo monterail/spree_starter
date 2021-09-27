@@ -1,7 +1,8 @@
 require 'pry'
+require_dependency 'spree/shipping_calculator'
 module Spree
   module Calculator::Shipping
-    class StoreDistance < ShippingCalculator
+    class StoreDistance < Spree::ShippingCalculator
 
       def available?(object)
         object.currency == "GBP"
@@ -38,30 +39,42 @@ module Spree
 
         total += Geocoder::Calculations.distance_between(final_location, start)
 
-        store_collection_charge = vendors.count * 0.5
+        store_collection_charge = -0.5
+        vendors.map { |store_charge| store_collection_charge += 0.5 }
 
         case total
         when 0..2.5
-          1
+          total = 2.5
         when 2.6..3.5
-          2
+          total = 3.5
         when 3.6..5.9
-          3
+          total = 4.5
         when 6.0..9
-          4
+          total = 5.5
         end
 
+
         total_weight = 0
-        weight_co_efficient = _package.order.variants.all.count
-        x = weight_co_efficient.count
+        x = _package.order.variants.all.count
 
         for b in 0...x do
           total_weight = _package.order.variants.map do |all|
             all.weight
           end
         end
-        total_weight.sum
-        
+        total_load = total_weight.sum
+
+        case total_load
+        when 0..25
+          total_load = 1
+        when 26..36
+          total_load = 1.2
+        when 36..50
+          total_load = 1.4
+        end
+
+        total = total + store_collection_charge
+        total_price = (total * total_load)
       end
     end
   end
