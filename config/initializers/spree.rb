@@ -13,6 +13,10 @@ Spree.config do |config|
   # Example:
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
+
 end
 
 Spree.user_class = 'Spree::User'
+
+config = Rails.application.config
+config.spree.calculators.shipping_methods << Spree::Calculator::Shipping::StoreDistance
