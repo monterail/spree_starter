@@ -9,7 +9,7 @@ module SpreeStarter
       end
 
       def coordinates
-        [starting_point, address].compact.join(', ')
+        [starting_point].compact.join(', ')
       end
     end
   end
