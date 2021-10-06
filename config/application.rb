@@ -52,5 +52,7 @@ module SpreeStarter
 
     # flipper memoizing
     config.middleware.use Flipper::Middleware::Memoizer
+
+    config.autoloader = :classic
   end
 end

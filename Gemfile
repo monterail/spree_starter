@@ -18,6 +18,9 @@ gem 'bootsnap', require: false
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Geocoder
+gem 'geocoder', '~> 1.6', '>= 1.6.7'
+
 # Use Puma as the app server
 gem 'puma'
 
