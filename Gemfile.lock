@@ -402,7 +402,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redis (4.2.5)
+    redis (4.5.1)
     regexp_parser (2.1.1)
     remote_syslog_logger (1.0.4)
       syslog_protocol
@@ -484,7 +484,7 @@ GEM
       ruby_http_client (~> 3.4)
     sentry-raven (3.1.2)
       faraday (>= 1.0)
-    sidekiq (6.2.1)
+    sidekiq (6.4.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
